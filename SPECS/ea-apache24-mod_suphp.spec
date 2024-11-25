@@ -29,7 +29,7 @@
 Name:           %{ns_name}-%{upstream_name}
 Version:        0.7.2
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4562 for more details
-%define release_prefix 36
+%define release_prefix 37
 Release: %{release_prefix}%{?dist}.cpanel
 License:        GPL-2.0
 Vendor:         cPanel, Inc.
@@ -126,6 +126,9 @@ rm -rf %{buildroot}
 %doc %attr(0644,root,root) doc/*
 
 %changelog
+* Mon Nov 25 2024 Dan Muey <daniel.muey@webpros.com> - 0.7.2-37
+- ZC-12236: Add PHP 8.4 to /etc/suphp.conf
+
 * Fri Dec 01 2023 Julian Brown <julian.brown@cpanel.net> - 0.7.2-36
 - ZC-11434: Correct Ubuntu file problem
 
