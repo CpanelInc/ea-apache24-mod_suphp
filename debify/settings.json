@@ -1,6 +1,6 @@
 {
     "vars": {
-        "_httpd_mmn": "20120211x8664",
+        "_httpd_mmn": "20120211",
         "_httpd_apxs": "/usr/bin/apxs",
         "_httpd_dir": "/etc/apache2",
         "_httpd_bindir": "%{_httpd_dir}/bin",
