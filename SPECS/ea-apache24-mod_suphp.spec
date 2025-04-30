@@ -95,6 +95,10 @@ export CXXFLAGS="$CXXFLAGS -std=c++14 -fPIE"
 
 %endif
 
+%if 0%{?rhel} >= 10
+export CFLAGS="-Wno-implicit-function-declaration -Wno-error=incompatible-pointer-types $CFLAGS"
+%endif
+
 %configure \
     --with-apache-user=nobody \
     --with-setid-mode=paranoid \
