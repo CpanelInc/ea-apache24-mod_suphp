@@ -29,7 +29,7 @@
 Name:           %{ns_name}-%{upstream_name}
 Version:        0.7.2
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4562 for more details
-%define release_prefix 37
+%define release_prefix 38
 Release: %{release_prefix}%{?dist}.cpanel
 License:        GPL-2.0
 Vendor:         cPanel, Inc.
@@ -58,7 +58,7 @@ BuildRequires:  libtool
 Requires:       %{ns_name}-mmn = %{_httpd_mmn}
 Requires:       ea-apr >= 1.5.0
 Conflicts:      %{ns_name}-mod_ruid2 %{ns_name}-mpm_itk
-Provides:       %{ns_name}-exec_code_asuser %{ns_name}-exec_php_asuser
+Provides:       %{ns_name}-exec_php_asuser
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 
 %description
@@ -130,6 +130,9 @@ rm -rf %{buildroot}
 %doc %attr(0644,root,root) doc/*
 
 %changelog
+* Mon Aug 11 2025 Julian Brown <julian.brown@webpros.com> - 0.7.2-38
+- EA4-96: Remove exec_code_asuser
+
 * Mon Nov 25 2024 Dan Muey <daniel.muey@webpros.com> - 0.7.2-37
 - ZC-12236: Add PHP 8.4 to /etc/suphp.conf
 
