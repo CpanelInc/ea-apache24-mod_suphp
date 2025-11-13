@@ -29,7 +29,7 @@
 Name:           %{ns_name}-%{upstream_name}
 Version:        0.7.2
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4562 for more details
-%define release_prefix 38
+%define release_prefix 39
 Release: %{release_prefix}%{?dist}.cpanel
 License:        GPL-2.0
 Vendor:         cPanel, Inc.
@@ -130,6 +130,9 @@ rm -rf %{buildroot}
 %doc %attr(0644,root,root) doc/*
 
 %changelog
+* Mon Nov 10 2025 Dan Muey <daniel.muey@webpros.com> - 0.7.2-39
+- EA4-186: Add ea-php85 handler
+
 * Mon Aug 11 2025 Julian Brown <julian.brown@webpros.com> - 0.7.2-38
 - EA4-96: Remove exec_code_asuser
 
