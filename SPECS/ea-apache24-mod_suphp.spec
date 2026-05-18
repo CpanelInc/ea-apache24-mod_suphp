@@ -29,7 +29,7 @@
 Name:           %{ns_name}-%{upstream_name}
 Version:        0.7.2
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4562 for more details
-%define release_prefix 38
+%define release_prefix 40
 Release: %{release_prefix}%{?dist}.cpanel
 License:        GPL-2.0
 Vendor:         cPanel, Inc.
@@ -50,6 +50,7 @@ Patch6:         0007-Fix-autoreconf-usage-when-generating-configure-scrip.patch
 Patch7:         0008-Support-phprc_paths-section-in-suphp.conf.patch
 Patch8:         suphp-0.7.1-cagefs.patch
 Patch9:         0009-Update-allow_file_group_writeable-with-more.patch
+Patch10:        0010-Fix-gcc14-const-buf-and-ap_internal_redirect.patch
 BuildRequires:  %{ns_name}-devel
 BuildRequires:  ea-apr-devel >= 1.5.0
 BuildRequires:  ea-apr-util-devel
@@ -79,6 +80,7 @@ the PHP interpreter.
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 set -x
@@ -130,6 +132,12 @@ rm -rf %{buildroot}
 %doc %attr(0644,root,root) doc/*
 
 %changelog
+* Fri Apr 24 2026 Heekyoung Park <heekyoung.park@webpros.com> - 0.7.2-40
+- EA4-260: Build for Ubuntu 26.04
+
+* Mon Nov 10 2025 Dan Muey <daniel.muey@webpros.com> - 0.7.2-39
+- EA4-186: Add ea-php85 handler
+
 * Mon Aug 11 2025 Julian Brown <julian.brown@webpros.com> - 0.7.2-38
 - EA4-96: Remove exec_code_asuser
 

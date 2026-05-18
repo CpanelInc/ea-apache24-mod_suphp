@@ -1,0 +1,28 @@
+--- suphp-0.7.2.orig/src/apache2/mod_suphp.c	2026-04-23 03:09:01.806664893 +0000
++++ suphp-0.7.2/src/apache2/mod_suphp.c	2026-04-23 03:20:02.225375581 +0000
+@@ -29,6 +29,7 @@
+ #include "httpd.h"
+ #include "http_config.h"
+ #include "http_core.h"
++#include "http_request.h"
+ #include "http_log.h"
+ 
+ #include "util_script.h"
+@@ -79,7 +80,7 @@
+     last_byte = target_buf + bytes;
+ 
+     for (b = APR_BRIGADE_FIRST(bb); b != APR_BRIGADE_SENTINEL(bb); b = APR_BUCKET_NEXT(b)) {
+-        char *buf;
++        const char *buf;
+         apr_size_t size;
+         apr_size_t i;
+         if (apr_bucket_read(b, &buf, &size, APR_BLOCK_READ) == APR_SUCCESS) {
+@@ -1065,7 +1066,7 @@
+             r->method_number = M_GET;
+             apr_table_unset(r->headers_in, "Content-Length");
+ 
+-            ap_internal_redirect_handler(location, r);
++            ap_internal_redirect(location, r);
+             return OK;
+         }
+         else if (location && r->status == 200)
