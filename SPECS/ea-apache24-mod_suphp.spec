@@ -29,7 +29,7 @@
 Name:           %{ns_name}-%{upstream_name}
 Version:        0.7.2
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4562 for more details
-%define release_prefix 40
+%define release_prefix 41
 Release: %{release_prefix}%{?dist}.cpanel
 License:        GPL-2.0
 Vendor:         cPanel, Inc.
@@ -132,6 +132,9 @@ rm -rf %{buildroot}
 %doc %attr(0644,root,root) doc/*
 
 %changelog
+* Mon Nov 16 2026 Julian Brown <julian.brown@webpros.com> - 0.7.2-41
+- EA4-401: Add ea-php86 handler
+
 * Fri Apr 24 2026 Heekyoung Park <heekyoung.park@webpros.com> - 0.7.2-40
 - EA4-260: Build for Ubuntu 26.04
 
